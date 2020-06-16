@@ -27,11 +27,9 @@ const styles = {
         width: "100%",
         height: "auto"
     },
-    // container: {
-    //     width: '100%',
-    //     display: 'flex',
-    //     justifyContent: 'space-between'
-    // }
+    blink_me: {
+        animation: 'blinker 1s cubic-bezier(0, 2.25, 0, 2.25) infinite',
+    },
 }
 const mins = [0, 2201, 4001, 9001, 30001, 40001, 71001, 135600, 357000, 625001, 1000001]
 
@@ -60,13 +58,25 @@ const ScovilleMeter = ({ classes, scovilles }) => {
             }, 300)
         }
     })
+
+
+
+
     return (
         <div className="classes-container">
             <div className={classes.meter}>
                 <img src={Pepper} alt='pepper-outline' className={classes.level} />
-                {displayedLevels.map(level => (
-                    <img src={level} alt="level" key={level} className={classes.level} />
-                ))}
+                {
+                    displayedLevels.map((level, i) => (
+                        i === 11
+                            ? (
+                                <img key={level} src={level} alt="level" className={`${classes.level} ${classes.blink_me}`} />
+                            )
+                            : (
+                                <img key={level} src={level} alt="level" className={classes.level} />
+                            )
+                    ))
+                }
             </div>
         </div>
     )

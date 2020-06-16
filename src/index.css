@@ -7,3 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: black;
 }
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
