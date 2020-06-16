@@ -38,8 +38,14 @@ const styles = {
     text: {
         color: 'red',
         textAlign: 'center',
-        fontSize: '2em'
-    }
+        fontSize: '2em',
+        margin: '0px',
+        textTransform: 'uppercase',
+        textShadow: '0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00',
+    },
+    textYellow: {
+        color: 'yellow',
+    },
 }
 const mins = [0, 2201, 4001, 9001, 30001, 40001, 71001, 135600, 357000, 625001, 1000001]
 
@@ -88,7 +94,14 @@ const ScovilleMeter = ({ classes, scovilles, height }) => {
                     ))
                 }
             </div>
-            <p className={classes.text}>{scovilles}</p>
+            <p className={classes.text}>
+                <span className={classes.textYellow}>scoville</span>
+                <br />
+                <span className={classes.textYellow}>level</span>
+                <br />
+                {new Intl.NumberFormat('en-US').format(scovilles)}
+
+            </p>
         </div>
     )
 }
