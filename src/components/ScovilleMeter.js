@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import injectSheet from 'react-jss';
 import PropsTypes from 'prop-types'
 
@@ -50,11 +50,21 @@ const getLevels = (scovilles) => {
 
 
 const ScovilleMeter = ({ classes, scovilles }) => {
+    const allLevels = getLevels(scovilles);
+    const [displayedLevels, setDisplayedLevels] = useState([]);
+    useEffect(() => {
+        if (displayedLevels.length !== allLevels.length) {
+            setTimeout(() => {
+                const levelsToShow = allLevels.slice(0, displayedLevels.length + 1)
+                setDisplayedLevels(levelsToShow)
+            }, 300)
+        }
+    })
     return (
         <div className="classes-container">
             <div className={classes.meter}>
                 <img src={Pepper} alt='pepper-outline' className={classes.level} />
-                {getLevels(scovilles).map(level => (
+                {displayedLevels.map(level => (
                     <img src={level} alt="level" key={level} className={classes.level} />
                 ))}
             </div>
