@@ -18,18 +18,28 @@ for (let i = 1; i <= 11; i += 1) {
 
 
 const styles = {
+    container: {
+        display: 'inline-flex',
+        flexDirection: 'column',
+        height: '400px'
+    },
     meter: {
         position: 'relative',
-        width: '30%'
+        height: '100%'
     },
     level: {
         position: 'absolute',
-        width: "100%",
-        height: "auto"
+        height: "100%",
+        width: "auto"
     },
     blink_me: {
         animation: 'blinker 1s cubic-bezier(0, 2.25, 0, 2.25) infinite',
     },
+    text: {
+        color: 'red',
+        textAlign: 'center',
+        fontSize: '2em'
+    }
 }
 const mins = [0, 2201, 4001, 9001, 30001, 40001, 71001, 135600, 357000, 625001, 1000001]
 
@@ -47,7 +57,7 @@ const getLevels = (scovilles) => {
 
 
 
-const ScovilleMeter = ({ classes, scovilles }) => {
+const ScovilleMeter = ({ classes, scovilles, height }) => {
     const allLevels = getLevels(scovilles);
     const [displayedLevels, setDisplayedLevels] = useState([]);
     useEffect(() => {
@@ -63,7 +73,7 @@ const ScovilleMeter = ({ classes, scovilles }) => {
 
 
     return (
-        <div className="classes-container">
+        <div className={classes.container} style={{ height: `${height}px`, width: `${0.58 * height}px` }}>
             <div className={classes.meter}>
                 <img src={Pepper} alt='pepper-outline' className={classes.level} />
                 {
@@ -78,6 +88,7 @@ const ScovilleMeter = ({ classes, scovilles }) => {
                     ))
                 }
             </div>
+            <p className={classes.text}>{scovilles}</p>
         </div>
     )
 }
@@ -85,6 +96,7 @@ const ScovilleMeter = ({ classes, scovilles }) => {
 
 ScovilleMeter.PropsTypes = {
     classes: PropsTypes.shape({}).isRequired,
-    scovilles: PropsTypes.number.isRequired
+    scovilles: PropsTypes.number.isRequired,
+    height: PropsTypes.string.isRequired,
 }
 export default injectSheet(styles)(ScovilleMeter)
