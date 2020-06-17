@@ -13,7 +13,7 @@ for (let i = 1; i <= 9; i += 1) {
 
 const styles = {
     sidebar: {
-        width: '300px',
+        minWidth: '300px',
         height: '100%',
         overflowY: 'scroll'
     },

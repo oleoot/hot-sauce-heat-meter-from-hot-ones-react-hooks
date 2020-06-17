@@ -12,6 +12,7 @@ function App() {
       <SeasonSelector />
       <Switch>
         <Route exact path="/seasons/:season" component={SeasonViewer} />
+        <Route path="/seasons/:season/sauces/:sauce_id" component={SeasonViewer} />
       </Switch>
       {/* <ScovilleMeter height={"400"} scovilles={5000} />
       <ScovilleMeter height={"400"} scovilles={20000} />
