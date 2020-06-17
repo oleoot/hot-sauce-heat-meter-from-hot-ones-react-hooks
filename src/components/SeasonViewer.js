@@ -4,20 +4,30 @@ import PropsTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
 const styles = {
-
+    container: {
+        color: 'yellow'
+    }
 }
 
 
 
-const SeasonViewer = ({ match }) => {
+const SeasonViewer = ({ classes, match }) => {
     const { season } = match.params
     const [sauces, setSauces] = useState([]);
     useEffect(() => {
-        console.log(`Getting season .... ${season}`);
+        const sauces = require(`../sauces/season_${season}.json`);
+        setSauces(sauces)
 
     }, [season])
     return (
-        <h1>Season Viewer</h1>
+        <div className={classes.container}>
+            <div></div>
+            <div>
+                {sauces.map((sauce => (
+                    <p>{sauce.name}</p>
+                )))}
+            </div>
+        </div>
     )
 }
 
