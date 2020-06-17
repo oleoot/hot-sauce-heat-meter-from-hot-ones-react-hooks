@@ -7,7 +7,7 @@ import SauceViewer from './SauceViewer'
 const styles = {
     container: {
         width: '100%',
-        height: '100%',
+        height: '100vh',
         display: 'flex',
         color: 'yellow',
         flexDirection: 'column',
@@ -31,10 +31,6 @@ const styles = {
             },
         },
     },
-    selected: {
-        background: 'red !important',
-        boxShadow: '0 0 8px 8px black inset !important',
-    },
     messageText: {
         width: '100%',
         height: '100%',
@@ -43,7 +39,6 @@ const styles = {
         alignItems: 'center',
         textTransform: 'uppercase',
         fontSize: '4em',
-        fontFamily: '\'Allerta Stencil\', sans-serif',
         textShadow: '0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00',
     },
 };
@@ -67,6 +62,13 @@ const SeasonViewer = ({ classes, match, history }) => {
         <div className={classes.container}>
             <div className={classes.selectedSauce}>
                 <Switch>
+                    <Route
+                        exact
+                        path="/seasons/:season"
+                        component={() => (
+                            <h3 className={classes.messageText}>Select a sauce</h3>
+                        )}
+                    />
                     <Route path={`*/sauces/:sauce_id`} component={(props) => (
                         <SauceViewer {...props} sauce={selectedSauce || null} />
                     )} />

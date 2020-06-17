@@ -15,7 +15,6 @@ const styles = {
         alignItems: 'center',
         padding: '0.5em',
         textShadow: '0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00',
-        margin: '50px 0'
     },
     bottle: {
         height: '280px',
@@ -60,7 +59,7 @@ const SauceViewer = ({ classes, sauce }) => {
                             <div className={classes.info}>
                                 <span className={classes.name}>{sauce.name}</span>
                                 <br />
-                                <small>By: <a href="#">{sauce.maker}</a></small>
+                                <small>By: <a href={sauce.website} target="_blank">{sauce.maker}</a></small>
                             </div>
                         </div>
                         <div className={classes.containerItem}>
