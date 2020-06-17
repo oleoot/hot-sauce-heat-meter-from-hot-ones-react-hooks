@@ -1,6 +1,8 @@
 import React from 'react';
-import ScovilleMeter from './components/ScovilleMeter';
+// import ScovilleMeter from './components/ScovilleMeter';
 import SeasonSelector from './components/SeasonSelector';
+import SeasonViewer from './components/SeasonViewer';
+import { Switch, Route } from 'react-router-dom';
 
 
 
@@ -8,6 +10,9 @@ function App() {
   return (
     <div className="App">
       <SeasonSelector />
+      <Switch>
+        <Route exact path="/seasons/:season" component={SeasonViewer} />
+      </Switch>
       {/* <ScovilleMeter height={"400"} scovilles={5000} />
       <ScovilleMeter height={"400"} scovilles={20000} />
       <ScovilleMeter height={"400"} scovilles={50000} />
