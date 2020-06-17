@@ -15,13 +15,13 @@ const styles = {
     sidebar: {
         minWidth: '300px',
         height: '100%',
-        overflowY: 'scroll'
+        overflowY: 'auto'
     },
     seasonButton: {
         minWidth: '100px',
         fontSize: '2em',
         margin: '1em',
-        padding: '0.5em',
+        padding: '0.25em',
         color: 'yellow',
         outline: '2px solid red',
         textAlign: 'center',

@@ -7,7 +7,7 @@ import SauceViewer from './SauceViewer'
 const styles = {
     container: {
         width: '100%',
-        height: '100vh',
+        height: '100%',
         display: 'flex',
         color: 'yellow',
         flexDirection: 'column',
@@ -51,7 +51,7 @@ const styles = {
 
 
 const SeasonViewer = ({ classes, match, history }) => {
-    const { season, sauce_id } = match.params
+    const { season } = match.params
     const [sauces, setSauces] = useState([]);
     const [selectedSauce, setSelectedSauce] = useState(null)
 
